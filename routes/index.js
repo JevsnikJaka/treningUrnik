@@ -26,7 +26,7 @@ router.get('/getUrnik', (req, res, next) => {
   //   // each row being an array of cells.
   //   res.send(rows);
   // })
-  const workSheetsFromFile = xlsx.parse('C:\\GitProjekti\\treningUrnik\\routes\\OK MERKUR MARIBOR URNIK - avgust 2022.xlsx');
+  // const workSheetsFromFile = xlsx.parse('C:\\GitProjekti\\treningUrnik\\routes\\OK MERKUR MARIBOR URNIK - avgust 2022.xlsx');
   // res.send(workSheetsFromFile);
   // console.log(workSheetsFromFile[0].data.length)
   
@@ -38,7 +38,16 @@ router.get('/getUrnik', (req, res, next) => {
   //   }
   // });
 
-  res.send(workSheetsFromFile[0].data[1]);
+  // res.send(workSheetsFromFile[0].data[1]);
+
+  let dan = new Date();
+  dan = dan.getUTCDate().toString();
+  
+  switch(dan) {
+    case '4':
+      res.sendFile(__dirname + '/2022-08-04.png');
+      break;
+  }
 
 });
 
